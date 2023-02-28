@@ -75,7 +75,7 @@ class EtudiantController extends Controller
 
     public function show($id)
     {
-        $etudiant = Etudiant::findOrFail($id);
+        $etudiant = Etudiant::find($id);
         if($etudiant)
         {
             return response()->json([
@@ -88,13 +88,13 @@ class EtudiantController extends Controller
             return response()->json([
                 'status' => 404,
                 'message' => 'Aucun étudiant disponible'
-            ], 404);
+            ],404);
         }
     }
 
     public function edit($id)
     {
-        $etudiant = Etudiant::findOrFail($id);
+        $etudiant = Etudiant::find($id);
         if($etudiant){
             return response()->json([
                 'status' => 200,
@@ -127,7 +127,7 @@ class EtudiantController extends Controller
         }
         else
         {
-            $etudiants = Etudiant::findOrFail($id);
+            $etudiants = Etudiant::find($id);
 
             if($etudiants){
 
@@ -157,7 +157,7 @@ class EtudiantController extends Controller
 
     public function destroy($id)
     {
-        $etudiants = Etudiant::findOrFail($id);
+        $etudiants = Etudiant::find($id);
 
         if($etudiants)
         {
